@@ -1,0 +1,22 @@
+[package]
+name = "ugee-driver"
+version = "0.1.0"
+edition = "2021"
+default-run = "ugee-driver"
+description = "Open-source Linux user-space driver (Rust) and GTK4/Libadwaita GUI (Python) for UGEE graphics tablets"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "ugee-driver"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+evdev = "0.12"
+libc = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

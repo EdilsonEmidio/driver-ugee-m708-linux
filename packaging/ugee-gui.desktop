@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=UGEE Tablet Driver
+Name[pt_BR]=Mesa Digitalizadora UGEE
+GenericName=Graphics Tablet Settings
+GenericName[pt_BR]=Configurações da Mesa Digitalizadora
+Comment=Configure active area, pressure curve and shortcut keys for UGEE graphics tablets
+Comment[pt_BR]=Configure área ativa, curva de pressão da caneta e teclas de atalho da sua mesa UGEE
+Exec=/usr/local/bin/ugee-gui
+Icon=ugee-m708
+Terminal=false
+Categories=Settings;HardwareSettings;Graphics;GTK;
+Keywords=tablet;ugee;m708;stylus;pen;wacom;mesa;digitalizadora;caneta;
+StartupNotify=true
+StartupWMClass=com.ugee.tablet.settings

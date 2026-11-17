@@ -1,0 +1,15 @@
+# Regras udev para mesas digitalizadoras UGEE / Hanvon Ugee (VID 0x28BD)
+# Prefixo 60- garante execução antes de 70-uaccess.rules / 73-seat-late.rules.
+
+# Acesso de usuário sem root aos nós /dev/hidraw* da mesa
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28bd", MODE="0660", TAG+="uaccess"
+
+# Acesso de usuário sem root ao dispositivo USB (/dev/bus/usb/BBB/DDD) para leitura de descritores (0x64, 0x6E, 0x83)
+SUBSYSTEM=="usb", ATTR{idVendor}=="28bd", MODE="0660", TAG+="uaccess"
+
+# Acesso de usuário sem root ao dispositivo virtual uinput para emulação de caneta e atalhos
+KERNEL=="uinput", SUBSYSTEM=="misc", MODE="0660", TAG+="uaccess", OPTIONS+="static_node=uinput"
+
+# Classificação dos dispositivos virtuais uinput para integração nativa no GNOME Wayland (libwacom / Mutter)
+SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="UGEE Tablet Stylus", ENV{ID_INPUT}="1", ENV{ID_INPUT_TABLET}="1"
+SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="UGEE Tablet Pad", ENV{ID_INPUT}="1", ENV{ID_INPUT_TABLET_PAD}="1"

@@ -1,0 +1,12 @@
+[Unit]
+Description=UGEE Tablet User-Space Driver (Rust HID -> uinput + IPC)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ugee-driver
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
